@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import { Octokit } from 'octokit'
 import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
 import parseData from '@/utils/parseData'
 import { CommitInfo } from '@/utils/interfaces'
 
