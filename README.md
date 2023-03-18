@@ -20,10 +20,8 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-
 ## What it application does.
+
 This application tracks the git commits done within the same app, and provides commit-by-commit information in chronological order.
 
 Next.js' getServerSideProps server-side rendering feature is used to fetch this data at request time.
-
-
