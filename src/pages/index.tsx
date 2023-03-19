@@ -1,14 +1,19 @@
 import Head from 'next/head'
-import { Octokit } from 'octokit'
 
+import getCommits from '@/api/getCommits'
 import CommitList from '@/components/CommitList'
 import Header from '@/components/Header'
-import { CommitInfo, ParsedCommit } from '@/utils/interfaces'
-import parseData from '@/utils/parseData'
+import { ParsedCommit } from '@/utils/interfaces'
 
 interface HomeProps {
   parsedCommits: ParsedCommit[]
 }
+
+export async function getServerSideProps() {
+  const parsedCommits = getCommits();
+  return { props: { parsedCommits } }
+}
+
 export default function Home({ parsedCommits }: HomeProps) {
   return (
     <>
@@ -26,17 +31,4 @@ export default function Home({ parsedCommits }: HomeProps) {
   )
 }
 
-export async function getServerSideProps() {
-  const octokit = new Octokit({
-    auth: process.env.GITHUB_ACCESS_TOKEN,
-  })
-  const response = await octokit.request(
-    'GET /repos/ragomez7/git-tracker/commits',
-    {},
-  )
-  const commits = response.data.map(
-    (commitInfo: CommitInfo) => commitInfo.commit,
-  )
-  const parsedCommits = parseData(commits)
-  return { props: { parsedCommits } }
-}
+

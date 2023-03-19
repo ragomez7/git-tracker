@@ -1,5 +1,5 @@
-import { Commit } from './interfaces'
-export default function parseData(commits: Commit[]) {
+import { Commit, ParsedCommit } from './interfaces'
+export default function parseData(commits: Commit[]): ParsedCommit[] {
   const parsedCommits = []
   for (const commit of commits) {
     parsedCommits.push({
