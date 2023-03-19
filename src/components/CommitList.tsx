@@ -1,16 +1,18 @@
-import React from "react";
+import React from 'react'
 
-import { ParsedCommit } from "@/utils/interfaces";
+import { ParsedCommit } from '@/utils/interfaces'
 
-import Commit from "./Commit";
+import Commit from './Commit'
 
 interface CommitListProps {
-    commits: ParsedCommit[]
+  commits: ParsedCommit[]
 }
 export default function CommitList({ commits }: CommitListProps) {
-    return (
-        <>
-            {commits.map((commit) => <Commit key={commit.sha} commit={commit} />)}
-        </>
-    )
+  return (
+    <>
+      {commits.map((commit) => (
+        <Commit key={commit.sha} commit={commit} />
+      ))}
+    </>
+  )
 }

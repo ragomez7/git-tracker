@@ -6,7 +6,6 @@ import Header from '@/components/Header'
 import { CommitInfo, ParsedCommit } from '@/utils/interfaces'
 import parseData from '@/utils/parseData'
 
-
 interface HomeProps {
   parsedCommits: ParsedCommit[]
 }
