@@ -13,3 +13,37 @@
     @apply bg-gradient-to-r from-gray-900 via-black to-black text-white;
   }
 }
+
+.red-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: red;
+    animation: red-dot-start 0.46875s infinite alternate;
+}
+
+@keyframes red-dot-start {
+  0% {
+    transform: scale(1)
+  }
+  100% {
+    transform: scale(2)
+  }
+}
+
+.commit-article {
+  border-left: 5px solid red;
+  position: relative;
+  /* border: '1px' */
+}
+
+.commit-article::after {
+  content: "";
+  background-color: red;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  left: -10px;
+  top: calc(50% + 10px);
+}

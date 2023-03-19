@@ -12,8 +12,11 @@ export default function Commit({ commit }: CommitProps) {
   const renderedName = useTypingEffect(commit.name)
   const renderedEmail = useTypingEffect(commit.email)
   const renderedMessage = useTypingEffect(commit.message)
+  if (!renderedName) {
+    return null;
+  }
   return (
-    <article className="mt-4 sm:mt-8">
+    <article className="pt-4 sm:pt-8 pl-6 sm:pl-10 commit-article">
       <p className="text-xs sm:text-sm text-green-400">{renderedCommitDate}</p>
       <article className="pl-1 text-sm sm:text-base">
         <p>{renderedName}</p>
