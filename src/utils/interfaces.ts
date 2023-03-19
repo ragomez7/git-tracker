@@ -9,6 +9,7 @@ export interface Tree {
   url: string
 }
 export interface Commit {
+  sha: string
   author: Author
   committer: Author
   message: string
@@ -17,4 +18,9 @@ export interface Commit {
 
 export interface CommitInfo {
   commit: Commit
+}
+
+export interface ParsedCommit extends Author {
+  sha: string
+  message: string
 }

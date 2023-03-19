@@ -1,12 +1,16 @@
 import Head from 'next/head'
 import { Octokit } from 'octokit'
-import { Inter } from '@next/font/google'
+
+import CommitList from '@/components/CommitList'
+import Header from '@/components/Header'
+import { CommitInfo, ParsedCommit } from '@/utils/interfaces'
 import parseData from '@/utils/parseData'
-import { CommitInfo } from '@/utils/interfaces'
 
-const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+interface HomeProps {
+  parsedCommits: ParsedCommit[]
+}
+export default function Home({ parsedCommits }: HomeProps) {
   return (
     <>
       <Head>
@@ -15,7 +19,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>Git Tracker</main>
+      <Header />
+      <main className="pt-8 pl-10 pr-6 lg:pt-12 lg:pl-32 xl:pl-52">
+        <CommitList commits={parsedCommits} />
+      </main>
     </>
   )
 }
