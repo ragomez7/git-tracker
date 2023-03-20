@@ -10,7 +10,7 @@ interface HomeProps {
 }
 
 export async function getServerSideProps() {
-  const parsedCommits = getCommits();
+  const parsedCommits = await getCommits();
   return { props: { parsedCommits } }
 }
 
