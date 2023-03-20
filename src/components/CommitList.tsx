@@ -9,10 +9,10 @@ interface CommitListProps {
 }
 export default function CommitList({ commits }: CommitListProps) {
   return (
-    <>
+    <section>
       {commits.map((commit) => (
         <Commit key={commit.sha} commit={commit} />
       ))}
-    </>
+    </section>
   )
 }
